@@ -51,10 +51,6 @@ function App() {
 
   },[])
 
-
-
-  // STEP 5: Create a function that will monitor changes in the firebase data, and update the boxe's colour state on the user's browser. this will be done by using the onValue function from firebase. I thinkn I have to activate it when the app loads. 
-
   
   return (
     <div className="App">

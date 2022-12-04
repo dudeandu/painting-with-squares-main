@@ -1,5 +1,5 @@
 import app from './firebase.js';
-import { useState} from 'react';
+import { useState } from 'react';
 import { getDatabase, ref, set } from 'firebase/database';
 
 const Box = (props) => {

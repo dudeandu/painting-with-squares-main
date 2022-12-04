@@ -29,7 +29,7 @@ const Box = (props) => {
     
     setBoxColor(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
     
-    console.log(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
+    // console.log(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
   }
 
     

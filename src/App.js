@@ -14,12 +14,12 @@ function App() {
   // number of boxes the drawing board will have
   const totalBoxes = 3000;
 
-  //connect to the database
-  const database = getDatabase(app);
-  const dbRef = ref(database);
-
+  
   //set the database with the array 
   useEffect( () => {
+    //connect to the database
+    const database = getDatabase(app);
+    const dbRef = ref(database);
     
     //function that be called if the database is empty, and then fill the database
     const makeDatabase = () => {
@@ -42,10 +42,10 @@ function App() {
         setBoxArray(snapshot.val());
       } else {
         // build the database otherwise
-        console.log("No data available")
         makeDatabase();
       }
     }).catch((error) => {
+      alert("No data available. Try reloading the page, or come back tomorrow because too many people are using this supper super fun app")
       console.log(error)
     })
 

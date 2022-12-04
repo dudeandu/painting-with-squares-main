@@ -10,7 +10,6 @@ function App() {
 
   //Fill up an array with 0 the same size as totalBoxes
   const [boxArray, setBoxArray] = useState([]);
-
   
   // number of boxes the drawing board will have
   const totalBoxes = 3000;
@@ -53,18 +52,6 @@ function App() {
   },[])
 
 
-  // STEP 4: this function will be activated on onClick on one oof the Box components.It needs to get the information from the 'colour' prop to update the firebase database, and also change the colour of the box by toggling the class between white and black and then updating the state on the Box.
-  const classToggler = (e) => {
-
-    const arrayIndex = e.target.attributes.arrayindex.value;
-    const asignedData = e.target.attributes.asigneddata.value;
-    
-    const childRef = ref(database, `/${arrayIndex}`)
-    const newAssignment = asignedData === '0' ? 1 : 0;
-    // console.log(asignedData, asignedData === '0' ? 1 : 0)
-    set(childRef, newAssignment)
-    
-  }
 
   // STEP 5: Create a function that will monitor changes in the firebase data, and update the boxe's colour state on the user's browser. this will be done by using the onValue function from firebase. I thinkn I have to activate it when the app loads. 
 
@@ -87,7 +74,7 @@ function App() {
                       id={ `box${i}` }
                       arrayIndex={ i }
                       asignedData={ singleBox }
-                      classToggler={ classToggler }
+                      // classToggler={ classToggler }
                     />
                   )
                 }

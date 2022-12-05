@@ -10,26 +10,25 @@ const Box = (props) => {
   const [theAsignmentState, setTheAsignmentState] = useState(props.asignedData)
   
   // state for the box's colour class
-  const [boxColor, setBoxColor] = useState(props.asignedData === 'white' ? `box white` : `box black`)
+  const [boxColor, setBoxColor] = useState(`box ${props.asignedData}`)
 
 
   // STEP 4: this function will be activated on onClick on one the Box components. It needs to get the information from the 'colour' prop to update the firebase database, and also change the colour of the box by assigning the class between white and black and then updating the state on the Box.
   const classToggler = (e) => {
 
+
     const arrayIndex = e.target.attributes.arrayindex.value;
-    const asignedData = e.target.attributes.asigneddata.value;
+    const asignedData = props.selectedColour;
 
     //connect to the database
     const database = getDatabase(app);
     const childRef = ref(database, `/${arrayIndex}`)
     
-    const newAssignment = asignedData === 'white' ? 'black' : 'white';
+    const newAssignment = asignedData;
     set(childRef, newAssignment)
     setTheAsignmentState(newAssignment)
     
-    setBoxColor(newAssignment === 'white' ? `box white` : `box black`)
-    
-    // console.log(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
+    setBoxColor(`box ${newAssignment}`)
   }
 
 
@@ -45,7 +44,7 @@ const Box = (props) => {
       const newAssignment = response.val();
       setTheAsignmentState(newAssignment)
       
-      setBoxColor(newAssignment === 'white' ? `box white` : `box black`)
+      setBoxColor(`box ${newAssignment}`)
     })
 
   },[props.arrayIndex])

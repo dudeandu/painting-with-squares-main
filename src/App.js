@@ -2,6 +2,7 @@ import './App.css';
 import app from './firebase.js';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, set, get } from 'firebase/database';
+import ColourSelector from './ColourSelector';
 import Box from './Box';
 
 function App() {
@@ -14,6 +15,12 @@ function App() {
   // number of boxes the drawing board will have
   const totalBoxes = 3000;
 
+  // STEP 6: build components that will serve as the colour selectors. every time the user clicks on one of them , a state will change that will then update colours of the clocked Box classes to that colour, and update the DB
+  
+  // array with all the colours
+  const colArray = ['blue','green','yellow','orange','red','purple','black','white']
+  // asign a state the value of the selected colour starting with black
+  const [selectedColour, setSelectedColour] = useState('black')
   
   //set the database with the array 
   useEffect( () => {
@@ -49,7 +56,12 @@ function App() {
       console.log(error)
     })
 
-  },[])
+  },[]);
+
+  const selectColo = (e) => {
+    const colour = e.target.attributes.colourselector.value;
+    setSelectedColour(colour)
+  };
 
   
   return (
@@ -62,14 +74,19 @@ function App() {
       {/* STEP 2: Gnerate the same number of squares based on the length of the database's array using components called "squares". Give the squares a function that will be called on click, and will use a class, asigned by the firebase array, to change the colour of the square */}
       <div className="wrapper">
         <div className="colourSelectorContainer">
-          <button className="boxSelector white"></button>
-          <button className="boxSelector black"></button>
-          <button className="boxSelector blue"></button>
-          <button className="boxSelector green"></button>
-          <button className="boxSelector yellow"></button>
-          <button className="boxSelector orange"></button>
-          <button className="boxSelector red"></button>
-          <button className="boxSelector purple"></button>
+          { colArray.map( (singleColour,i) => {
+            return (
+              <ColourSelector 
+              key={`colourSelector${i}`}
+              useThisColour={singleColour}
+              selectColo={selectColo}              
+              />
+            )
+
+          })
+          }
+          
+          
 
         </div>
         <div className='drawingBoard'>
@@ -81,7 +98,7 @@ function App() {
                       id={ `box${i}` }
                       arrayIndex={ i }
                       asignedData={ singleBox }
-                      // classToggler={ classToggler }
+                      selectedColour={ selectedColour }
                     />
                   )
                 }

@@ -51,36 +51,44 @@ h2 {
 
 .white {
   background-color: #ECECEC;
+  border: 1px solid #000;
 }
 
 .black {
   background-color: #000000;
+  border: 1px solid #000000;
 }
 
 
 /* Styles for the stretch goals */
 .blue {
   background-color: #0077BB;
+  border: 1px solid #0077BB;
 }
 
 .green {
   background-color: #009988;
+  border: 1px solid #009988;
 }
 
 .yellow {
   background-color: #EEAA33;
+  border: 1px solid #EEAA33;
 }
 
 .orange {
   background-color: #EE8833;
+  border: 1px solid #EE8833;
 }
 
 .red {
   background-color: #CC3311;
+  border: 1px solid #CC3311;
 }
 
 .purple {
   background-color: #882255;
+  border: 1px solid #882255;
 }
 
 button {
@@ -92,4 +100,9 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  transition: all 0.15s;
+}
+
+button:hover, button:focus {
+  transform: scale(1.1);
 }

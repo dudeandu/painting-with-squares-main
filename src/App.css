@@ -29,7 +29,7 @@ h2 {
 .wrapper {
   max-width: 610px;
   width: 100%;
-  margin: 60px auto 0;
+  margin: 20px auto 0;
   /* border: 1px solid tomato; */
 }
 
@@ -49,10 +49,47 @@ h2 {
   margin: 1px;
 }
 
-.box.white {
+.white {
   background-color: #ECECEC;
 }
 
-.box.black {
+.black {
   background-color: #000000;
+}
+
+
+/* Styles for the stretch goals */
+.blue {
+  background-color: #0077BB;
+}
+
+.green {
+  background-color: #009988;
+}
+
+.yellow {
+  background-color: #EEAA33;
+}
+
+.orange {
+  background-color: #EE8833;
+}
+
+.red {
+  background-color: #CC3311;
+}
+
+.purple {
+  background-color: #882255;
+}
+
+button {
+  height: 30px;
+  width: 60px;
+  border: 1px solid #000;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

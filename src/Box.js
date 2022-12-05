@@ -10,7 +10,7 @@ const Box = (props) => {
   const [theAsignmentState, setTheAsignmentState] = useState(props.asignedData)
   
   // state for the box's colour class
-  const [boxColor, setBoxColor] = useState(props.asignedData === 0 ? `box white` : `box black`)
+  const [boxColor, setBoxColor] = useState(props.asignedData === 'white' ? `box white` : `box black`)
 
 
   // STEP 4: this function will be activated on onClick on one the Box components. It needs to get the information from the 'colour' prop to update the firebase database, and also change the colour of the box by assigning the class between white and black and then updating the state on the Box.
@@ -23,11 +23,11 @@ const Box = (props) => {
     const database = getDatabase(app);
     const childRef = ref(database, `/${arrayIndex}`)
     
-    const newAssignment = asignedData === 0 || asignedData === '0' ? 1 : 0;
+    const newAssignment = asignedData === 'white' ? 'black' : 'white';
     set(childRef, newAssignment)
     setTheAsignmentState(newAssignment)
     
-    setBoxColor(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
+    setBoxColor(newAssignment === 'white' ? `box white` : `box black`)
     
     // console.log(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
   }
@@ -40,14 +40,12 @@ const Box = (props) => {
     const database = getDatabase(app);
     const childRef = ref(database, `/${props.arrayIndex}`)
     onValue(childRef, (response) => {
-        // here we use Firebase's .val() method to parse our database info the way we want it
-      // console.log(props.arrayIndex, response.val());
-      // console.log("changed");
-
+      
+      // here we use Firebase's .val() method to parse our database info the way we want it
       const newAssignment = response.val();
       setTheAsignmentState(newAssignment)
       
-      setBoxColor(newAssignment === 0 || newAssignment === '0' ? `box white` : `box black`)
+      setBoxColor(newAssignment === 'white' ? `box white` : `box black`)
     })
 
   },[props.arrayIndex])

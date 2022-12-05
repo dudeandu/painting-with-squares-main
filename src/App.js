@@ -26,7 +26,7 @@ function App() {
       //fill the database to a random selection boxes 
       let databaseConstructor = [];
       for ( let i = 0; i < totalBoxes; i++ ) {
-        databaseConstructor.push(Math.floor(Math.random() * 2))
+        databaseConstructor.push('white')
       }
       set(dbRef, databaseConstructor)
     }
@@ -61,6 +61,17 @@ function App() {
       <main>
       {/* STEP 2: Gnerate the same number of squares based on the length of the database's array using components called "squares". Give the squares a function that will be called on click, and will use a class, asigned by the firebase array, to change the colour of the square */}
       <div className="wrapper">
+        <div className="colourSelectorContainer">
+          <button className="boxSelector white"></button>
+          <button className="boxSelector black"></button>
+          <button className="boxSelector blue"></button>
+          <button className="boxSelector green"></button>
+          <button className="boxSelector yellow"></button>
+          <button className="boxSelector orange"></button>
+          <button className="boxSelector red"></button>
+          <button className="boxSelector purple"></button>
+
+        </div>
         <div className='drawingBoard'>
           
           { boxArray.map( (singleBox, i) => {

@@ -31,7 +31,8 @@ const Box = (props) => {
     setBoxColor(`box ${newAssignment}`)
   }
 
-  const mouseDowntester = (e) => {
+  // Trying to see if I can do a mouse drag by combining mousedown and on enter
+  const mouseDownTester = (e) => {
     console.log("mouse down")
   }
 
@@ -61,6 +62,8 @@ const Box = (props) => {
       arrayindex={props.arrayIndex}
       asigneddata={theAsignmentState}
       onClick={classToggler}
+      
+      // Trying to see if I can do a mouse drag by combining mousedown and on enter
       onMouseDown={ mouseDowntester }
     >
     </div>

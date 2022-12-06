@@ -73,7 +73,7 @@ function App() {
         <h2>Click on the squares and have fun</h2>
       </header>
       <main>
-      {/* STEP 2: Gnerate the same number of squares based on the length of the database's array using components called "squares". Give the squares a function that will be called on click, and will use a class, asigned by the firebase array, to change the colour of the square */}
+      {/* STRETCH GOAL: generate a number of boxes that can be used to pick colours instead of just black an white */}
       <div className="wrapper">
         <div className="colourSelectorContainer">
           <form>
@@ -91,10 +91,12 @@ function App() {
           </form>
         </div>
 
+        {/* STEP 2: Gnerate the same number of squares based on the length of the database's array using components called "squares". Give the squares a function that will be called on click, and will use a class, asigned by the firebase array, to change the colour of the square */}
+
         <div className='drawingBoard'>
           
           { boxArray.map( (singleBox, i) => {
-              return (
+            return (
                     <Box 
                       key= {`reactkey${i}`}
                       id={ `box${i}` }
@@ -119,6 +121,10 @@ function App() {
 }
 
 export default App;
+
+
+/////// ////// ///// //// /// 
+// App Overview
 
 // Create an array that will contain the information as ones and zeros that will be used to fill the squares. Could be a 3D array if that helps locate square components in the drawing board easier.
 

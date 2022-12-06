@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, set, get } from 'firebase/database';
 import Box from './Box';
 import SelectorRadial from './SelectorRadial';
+import Footer from './Footer';
 
 function App() {
 
@@ -109,12 +110,11 @@ function App() {
               ) }
         </div>
       </div>
-
-       
-       
-
       </main>
-    
+      
+      <footer>
+        <Footer />
+      </footer>
       
     </div>
   );

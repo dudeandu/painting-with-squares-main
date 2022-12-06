@@ -42,8 +42,7 @@ function App() {
     .then( (snapshot) => {
       // check if there's a database
       if(snapshot.exists()){
-        // if ther is a database setup send a nice message to the console, and then use setBoxArray to update boxArray with the contents of the database
-        console.log("Here's your data you sexy fuck")
+        // if ther is a database setup use setBoxArray to update boxArray with the contents of the database
         // turn the function on/off to build a database every time the page loads. It's great for testing
         // makeDatabase();
         setBoxArray(snapshot.val());
@@ -58,9 +57,12 @@ function App() {
 
   },[]);
 
+
+  // function that assigns a colour to the selectedColour state when user clicks on one of the ColourSelector buttons. This function also adds the class 'selected' to the button
   const selectColo = (e) => {
     const colour = e.target.attributes.colourselector.value;
     setSelectedColour(colour)
+
   };
 
   
@@ -85,10 +87,8 @@ function App() {
 
           })
           }
-          
-          
-
         </div>
+
         <div className='drawingBoard'>
           
           { boxArray.map( (singleBox, i) => {

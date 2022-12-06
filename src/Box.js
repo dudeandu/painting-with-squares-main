@@ -31,6 +31,10 @@ const Box = (props) => {
     setBoxColor(`box ${newAssignment}`)
   }
 
+  const mouseDowntester = (e) => {
+    console.log("mouse down")
+  }
+
 
 
   // STEP 5: Create a function that will monitor changes in the firebase data, and update the box's colour state on the user's browser. this will be done by using the onValue function from firebase. I thinkn I have to activate it when the app loads. 
@@ -52,11 +56,12 @@ const Box = (props) => {
     
   return (
     <div 
-      className={boxColor}
+      className={ boxColor }
       id={props.id}
-      onClick={classToggler}
       arrayindex={props.arrayIndex}
       asigneddata={theAsignmentState}
+      onClick={classToggler}
+      onMouseDown={ mouseDowntester }
     >
     </div>
   )

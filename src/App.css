@@ -9,8 +9,10 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 }
 
 body {
+  /* background-color: #000; */
   background-color: #ECECEC;
   font-size: 125%;
+  /* color: #ECECEC; */
 }
 
 h1 {
@@ -57,6 +59,10 @@ h2 {
 .black {
   background-color: #000000;
   border: 1px solid #000000;
+}
+
+button.black {
+  border: 1px solid #ECECEC;  
 }
 
 

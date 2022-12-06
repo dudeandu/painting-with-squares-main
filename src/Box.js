@@ -64,7 +64,7 @@ const Box = (props) => {
       onClick={classToggler}
       
       // Trying to see if I can do a mouse drag by combining mousedown and on enter
-      onMouseDown={ mouseDowntester }
+      onMouseDown={ mouseDownTester }
     >
     </div>
   )

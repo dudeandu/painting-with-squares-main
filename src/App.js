@@ -2,8 +2,8 @@ import './App.css';
 import app from './firebase.js';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, set, get } from 'firebase/database';
-import ColourSelector from './ColourSelector';
 import Box from './Box';
+import SelectorRadial from './SelectorRadial';
 
 function App() {
 
@@ -76,17 +76,19 @@ function App() {
       {/* STEP 2: Gnerate the same number of squares based on the length of the database's array using components called "squares". Give the squares a function that will be called on click, and will use a class, asigned by the firebase array, to change the colour of the square */}
       <div className="wrapper">
         <div className="colourSelectorContainer">
-          { colArray.map( (singleColour,i) => {
-            return (
-              <ColourSelector 
-              key={`colourSelector${i}`}
-              useThisColour={singleColour}
-              selectColo={selectColo}              
-              />
-            )
-
-          })
-          }
+          <form>
+            { colArray.map( (singleColour,i) => {
+              return (
+                <SelectorRadial 
+                key={`colourSelector${i}`}
+                useThisColour={singleColour}
+                selectColo={selectColo}              
+                />
+                )
+                
+              })
+            }
+          </form>
         </div>
 
         <div className='drawingBoard'>

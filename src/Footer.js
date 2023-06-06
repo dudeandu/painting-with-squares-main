@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <a href="www.junocollege.com">Created at Juno College</a>
+    <a href="www.andresplana.com">© Andres Plana</a>
   )
 }
 
